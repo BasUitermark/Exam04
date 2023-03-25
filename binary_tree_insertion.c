@@ -6,19 +6,27 @@
 
 t_btree	*binary_tree_insertion(t_btree *root, int value)
 {
-	t_btree	*new = malloc(sizeof(t_btree));
-
-	new->value = value;
-	new->left = NULL;
-	new->right = NULL;
-	if (!root)
+	if (!root) {
+		t_btree	*new = malloc(sizeof(t_btree));
+		new->value = value;
+		new->left = NULL;
+		new->right = NULL;
 		return (new);
-
-	if (value > root->value)
-		root = binary_tree_insertion(root->right, value);
+	} else if (value > root->value)
+		root->right = binary_tree_insertion(root->right, value);
 	else if (value < root->value)
-		root = binary_tree_insertion(root->left, value);
+		root->left = binary_tree_insertion(root->left, value);
 	return (root);
+}
+
+void print_tree(t_btree const *tree) {
+    if(tree->left) {
+        print_tree(tree->left);
+	}
+    printf("element: %d\n", tree->value);
+    if(tree->right) {
+        print_tree(tree->right);
+    }
 }
 
 int	main(void)
@@ -30,5 +38,5 @@ int	main(void)
 	btree = binary_tree_insertion(btree, 40);
 
 	// btree = btree->right;
-	printf("%d\n", btree->value);
+	print_tree(btree);
 }
