@@ -31,6 +31,8 @@ static bool	verify_bracket(char *str)
 		if (str[i] == ')' || str[i] == '}' || str[i] == ']')
 		{
 			//make sure it is the correct bracket;
+			//replace by '0' if it is
+			//else we have an incorrect pairing
 			if (find == str[i])
 			{
 				str[i] = '0';
@@ -65,15 +67,9 @@ int	main(int argc, char **argv)
 	for (int i = 1; argv[i]; i++)
 	{
 		if (verify_bracket(argv[i]))
-		{
 			write(1, "OK\n", 3);
-			return (0);
-		}
 		else
-		{
 			write(1, "Error\n", 6);
-			return (0);
-		}
 	}
 	return (0);
 }
