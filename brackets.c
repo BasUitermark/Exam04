@@ -39,6 +39,7 @@ static bool	verify_bracket(char *str)
 				str[pos] = '0';
 				i = 0;
 				pos = 0;
+				find = NULL;
 				continue ;
 			}
 			else
