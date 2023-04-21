@@ -28,12 +28,12 @@ void	print_tree(t_btree const *tree)
 		print_tree(tree->right);
 }
 
-int	main(void)
-{
-	t_btree	*btree = NULL;
+// int	main(void)
+// {
+// 	t_btree	*btree = NULL;
 
-	btree = binary_tree_insertion(btree, 20);
-	btree = binary_tree_insertion(btree, 5);
-	btree = binary_tree_insertion(btree, 40);
-	print_tree(btree);
-}
+// 	btree = binary_tree_insertion(btree, 20);
+// 	btree = binary_tree_insertion(btree, 5);
+// 	btree = binary_tree_insertion(btree, 40);
+// 	print_tree(btree);
+// }
